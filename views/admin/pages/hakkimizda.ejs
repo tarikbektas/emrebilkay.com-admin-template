@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Hakkımızda Kısmı Ayarları</h4>
+          <p class="card-description">
+            Hakkımızda Kısmı
+          </p>
+          <form class="forms-sample" action="hakkimizdaedit" method="post">
+            <div class="form-group row">
+              <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Hakkımızda Üst Kısım</label>
+              <div class="col-sm-9">
+                <textarea id="hakkimizda_üst" name="hakkimizdatop"  placeholder="Hakkımızda Üst Kısım"  rows="5" cols="100"></textarea>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Hakkımzıda Alt Kısım</label>
+              <div class="col-sm-9">
+               
+                <textarea id="hakkimizda_alta" name="hakkimizdabot"  placeholder="Hakkımızda Alt Kısım"  rows="5" cols="100"></textarea>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="exampleInputMobile" class="col-sm-3 col-form-label">Spotify Embed Kodu</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="exampleInputMobile" name="spotify" placeholder="Spotify Embed Kodu">
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary me-2">Kaydet</button>
+          </form>
+        </div>
+      </div>
+      <h1>Mevcut Bilgiler  </h1>
+      <% hakkimizdas.forEach(item => { %>
+        <h2 style="margin-top: 2%;">Hakkımızda Üst kısım:</h2>
+        <p><%= item.page2_hakkimizdatop %></p>
+        <h2 style="margin-top: 2%;">Hakkımızda alt kısım:</h2>
+        <p><%= item.page2_hakkimizdabot %></p>
+        <h2 style="margin-top: 2%;">Spotfiy Embed Kodu</h2>
+        <p><%= item.page2_spotify_link %></p>
+      <% }); %>
+    </div>

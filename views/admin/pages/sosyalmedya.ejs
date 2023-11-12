@@ -1,0 +1,76 @@
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Sosyal Medya Ayarları</h4>
+          <p class="card-description">
+            Sosyal Medya Kısmı
+          </p>
+          <form class="forms-sample" action="sosyalmedya" method="post" enctype="multipart/form-data">
+            <div class="form-group row">
+                <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Sosyal Medya Logo</label>
+                <div class="col-sm-9">
+                  <input class="form-control" type="file" name="image1" style="padding-bottom: 5%;">
+                </div>
+              </div>
+            <div class="form-group row">
+              <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Sosyal Medya Görsel</label>
+              <div class="col-sm-9">
+                <input class="form-control" type="file" name="image2" style="padding-bottom: 5%;">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="exampleInputMobile" class="col-sm-3 col-form-label">Medya Linki</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="exampleInputMobile" name="link" placeholder="Sosyal Medya Linki">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="exampleInputMobile" class="col-sm-3 col-form-label">Görsel Sırası</label>
+              <div class="col-sm-9">
+                <input type="number" class="form-control" id="exampleInputMobile" name="sira" placeholder="sıra">
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary me-2">Kaydet</button>
+          </form>
+        </div>
+      </div>
+    
+        <div class="row">
+          <div class="col-12">
+              <table class="table table-image">
+                <thead>
+                  <tr>
+                    <th scope="col">id</th>
+                    <th scope="col">logo</th>
+                    <th scope="col">Görsel</th>
+                    <th scope="col">Link</th>
+                    <th scope="col">Sıra</th>
+                    <th>Yönet</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% socialmedia.forEach(function(socialmediaItem) { %>
+                    <tr>
+                      <td><%= socialmediaItem.id %></td>
+                      <td>
+                        <img src="<%= socialmediaItem.socialmedia_logo %>" style="width: 150px; height: 150px; border: none;" class="img-fluid img-thumbnail" alt="Sheep">
+                      </td>
+                      <td class=" ">
+                        <img src="<%= socialmediaItem.socialmedia_img %>" style="width: 500px; height: 200px; border-radius: 0;" class="img-fluid img-thumbnail" alt="Sheep">
+                      </td>
+                      <td class=" "><%= socialmediaItem.link %></td>
+                      <td class=" "><%= socialmediaItem.socialmedia_sira %></td>
+                      <form action="sosyalmedyasil" method="post">
+                        <input type="hidden" name="sosyalmedyaid" value="<%= socialmediaItem.id %>">
+                        <td><button type="submit" class="btn btn-danger">Sil</button></td>
+                      </form>
+                    </tr>
+                  <% }); %>
+                 
+                </tbody>
+              </table>   
+          </div>
+        </div>
+ 
+    </div>
+    

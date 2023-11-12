@@ -1,0 +1,59 @@
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Fotoğraf Galerisi Ayarları</h4>
+          <p class="card-description">
+            Fotoğraf Galerisi Kısmı
+          </p>
+          <form class="forms-sample" action="fotografgalerisi" method="post" enctype="multipart/form-data">
+            <div class="form-group row">
+                <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Galeri Görseli</label>
+                <div class="col-sm-9">
+                  <input class="form-control" type="file" name="image1" style="padding-bottom: 5%;">
+                </div>
+              </div>
+            <div class="form-group row">
+              <label for="exampleInputMobile" class="col-sm-3 col-form-label">Görsel Sırası</label>
+              <div class="col-sm-9">
+                <input type="number" class="form-control" id="exampleInputMobile"  name ="sira" placeholder="sıra">
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary me-2">Kaydet</button>
+          </form>
+        </div>
+      </div>
+    
+        <div class="row">
+          <div class="col-12">
+              <table class="table table-image">
+                <thead>
+                  <tr>
+                    <th scope="col">id</th>
+                    <th scope="col">Görsel</th>
+                    <th scope="col">Sıra</th>
+                    <th>Yönet</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% fotografgalerises.forEach(function(fotografitems) { %>
+                  <tr>
+                    <td st><%= fotografitems.id %></td>
+                    <td>
+                        <img src="<%= fotografitems.fotografgalerisi_url %>" style="width: 150px; height: 150px;border-radius:0;" class="img-fluid img-thumbnail" alt="Sheep">
+                    </td>
+                    <td  class="w-25"><%= fotografitems.fotografgalerisi_sira %></td>
+                    
+                    <td>
+                      <form action="fotografverisil" method="post">
+                        <input type="hidden" name='fotografid'value="<%= fotografitems.id %>">
+                      <button class="btn btn-danger">Sil</button>
+                    </form>
+                    </td>
+                  </tr>
+                  <% }); %>
+                </tbody>
+              </table>   
+          </div>
+        </div>
+ 
+    </div>
